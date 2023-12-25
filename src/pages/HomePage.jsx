@@ -60,21 +60,20 @@ const Homepage = () => {
                 </div>
             </div>
             {/* ABOUT ME */}
-            <div>
+            {/* <div>
                 <div className='ml-10 mt-6 text-3xl font-medium tracking-wider text-green-700'>ABOUT ME</div>
                 <div className='ml-10 w-1/2 ml-10 mt-6 text-2xl font-medium tracking-wider text-green-700'>Code artisan sculpting seamless experiences with React.js and Node.js magic.</div>
                 <div className='text-xl ml-10 mt-6 text-green-100 w-1/2'>Hello! I am a third-year student pursuing Computer Engineering at R. C. Patel Institute of Technology. My journey in the field of technology has been dynamic and exciting. I specialize in both frontend and backend development, with a focus on creating seamless and responsive applications using React.js for the frontend and Node.js for the backend.
                 </div>
-            </div>
-            <div className='mt-10'>
-                <div className='text-indigo-300 text-center text-3xl font-semibold'>MY SERVICES</div>
-                <div className='mt-6 text-indigo-300 text-xl text-center font-medium '>Elevating digital experiences through bespoke UI/UX design and web development excellence</div>
-                {/* <div className='mt-6 text-green-700 flex justify-evenly'> */}
-                {/* <div className='h-72 w-[30rem] bg-zinc-900'> */}
+            </div> */}
+            {/* MY SERVICES */}
+            {/* <div className='mt-10'>
+                <div className='text-white text-center text-3xl font-semibold'>MY SERVICES</div>
+                <div className='mt-6 text-white text-xl text-center font-medium '>Elevating digital experiences through bespoke UI/UX design and web development excellence</div>
                 <div className='mt-6 text-white flex justify-evenly'>
                     {
                         Services.map((Element) =>
-                            <div className='h-72 w-[30rem] bg-slate-800 '>
+                            <div className='h-72 w-[30rem] bg-slate-800 border-[#243c5a]'>
                                 <div className='text-center mt-10 text-xl font-medium font-sans '>{Element.Title}</div>
                                 <div>
                                     <div className='flex justify-center'>
@@ -87,7 +86,7 @@ const Homepage = () => {
                         )
                     }
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
