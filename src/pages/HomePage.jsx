@@ -7,29 +7,41 @@ import profile1 from "../assets/profile_1.jpg"
 import { useEffect, useRef, useState } from 'react'
 
 const Homepage = () => {
+
+    const [showProfile1, setShowProfile1] = useState(true)
     const Services = [
         { "Title": "UI/UX DESIGNER", "Description": "Crafting compelling and user-centric designs is my forte. With a keen eye for aesthetics and a passion for seamless user experiences, I bring creativity and functionality together to deliver impactful UI/UX solutions." },
         { "Title": "WEB DEVELOPER", "Description": "I excel in web design, merging creativity with functionality to craft visually appealing and user-centric websites. My passion lies in delivering seamless online experiences that captivate audiences and elevate brands." }
     ]
+
+
     useEffect(() => {
         document.body.style.backgroundColor = "#03072A";
+
+        const { innerWidth: width, innerHeight: height, outerWidth: outWidth } = window;
+        console.log(width, outWidth + " win resolution ")
+        if (outWidth > 500)
+            setShowProfile1(true)
+        else
+            setShowProfile1(false)
+
     }, [])
 
     const [userDetails, setUserDetails] = useState({})
     return (
         <div className='h-dvh mt-60 '>
             {/* Home ME */}
-            <div className='flex w-3/5 justify-center'>
-                <div className='w-3/5'>
-                    <div className='w-[45rem]'>
-                        <div className='ml-10 text-5xl font-medium tracking-wider text-slate-500'>
+            <div className='flex justify-center'>
+                <div className='flex w-[80%] gap-x-8'>
+                    <div className='min-w-[45rem] max-w-[45rem]'>
+                        <div className='ml-10 text-5xl tracking-wider text-slate-500' >
                             <div>HI, I'M Vinit!</div>
                             <div> Creative
                                 <ReactTyped className='text-slate-300' strings={[" DEVELOPER", " CODER"]} typeSpeed={100} loop />
                             </div>
                         </div>
                         <div className='ml-10 text-left mt-8  text-base font-medium tracking-wider text-slate-300'>
-                            As a budding talent in the realms of frontend and backend development, I blend creativity with technical prowess to sculpt digital experiences. Eager to infuse innovation into code, I bring fresh perspectives and a hunger to learn, making me a dynamic force poised to shape the future of web development.
+                            Passionate React and Node.js developer with a track record of creating robust and scalable web applications, adept at leveraging cutting-edge technologies for seamless user experiences
                         </div>
                         <div className='mt-6 ml-10'>
                             <a href={vinitResume} download={"Vinit S Patil CV"} target="_blank" rel="noopener noreferrer">
@@ -39,8 +51,11 @@ const Homepage = () => {
                         </div>
 
                     </div>
-                    <div >
-                        <img src={profile1} className='h-96 w-80' />
+                    <div className='h-96 min-w-80'>
+                        {showProfile1 ?
+                            <img src={profile1} className='h-96 w-80' />
+                            : ""
+                        }
                     </div>
                 </div>
             </div>
