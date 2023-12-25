@@ -8,7 +8,7 @@ const Projects = () => {
     ]
     return (
         <div>
-            <div className='text-white text-center text-5xl font-semibold'>Projects</div>
+            <div className='text-white text-center text-5xl font-semibold'>Projects 1</div>
 
             <div>
                 {
@@ -17,16 +17,17 @@ const Projects = () => {
                             <div className='mt-20 text-3xl text-amber-500'>{Element.Title}</div>
                             <div className='w-1/2'>
                                 <div className='text-white text-xl mt-9'>{Element.Description}</div>
-                                <div className='text-white text-xl mt-4 text-amber-300'>Technology:</div>
-                                <div className='text-white text-xl mt-4 '>{Element.Technologies}</div>
+                                <div className=" flex gap-5">
+                                    <span className='text-white text-xl mt-4 text-amber-300'>Technology:</span>
+                                    <span className='text-white text-xl mt-4 '>{Element.Technologies}</span>
+                                </div>
                             </div>
-
                         </div>
                     )
                 }
             </div>
 
-        </div >
+        </div>
     )
 }
 export default Projects
