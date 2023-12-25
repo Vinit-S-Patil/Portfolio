@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 const Homepage = () => {
     const Services = [
         { "Title": "UI/UX DESIGNER", "Description": "Crafting compelling and user-centric designs is my forte. With a keen eye for aesthetics and a passion for seamless user experiences, I bring creativity and functionality together to deliver impactful UI/UX solutions." },
-        { "Title": "WEB DEVELOPER", "Description": "" }
+        { "Title": "WEB DEVELOPER", "Description": "I excel in web design, merging creativity with functionality to craft visually appealing and user-centric websites. My passion lies in delivering seamless online experiences that captivate audiences and elevate brands." }
     ]
     useEffect(() => {
         document.body.style.backgroundColor = "#03072A";
@@ -52,21 +52,25 @@ const Homepage = () => {
                 </div>
             </div>
             <div className='mt-10'>
-                <div className='text-green-700 text-center text-3xl'>MY SERVICES</div>
-                <div className='mt-6 text-green-700 text-xl text-center'>Elevating digital experiences through bespoke UI/UX design and web development excellence</div>
-                <div className='mt-6 text-green-700 flex justify-evenly'>
-                    <div className='h-96 w-[30rem] bg-zinc-900'>
-
-                        <div className='text-center mt-10 text-xl '>UI/UX DESIGN</div>
-                        <div className='flex justify-center'>
-                            <div className='w-10/12 text-center'>
-                                <div className='mt-6  text-lg text-justify'>Crafting compelling and user-centric designs is my forte. With a keen eye for aesthetics and a passion for seamless user experiences, I bring creativity and functionality together to deliver impactful UI/UX solutions.</div>
+                <div className='text-indigo-300 text-center text-3xl font-semibold'>MY SERVICES</div>
+                <div className='mt-6 text-indigo-300 text-xl text-center font-medium '>Elevating digital experiences through bespoke UI/UX design and web development excellence</div>
+                {/* <div className='mt-6 text-green-700 flex justify-evenly'> */}
+                {/* <div className='h-72 w-[30rem] bg-zinc-900'> */}
+                <div className='mt-6 text-white flex justify-evenly'>
+                    {
+                        Services.map((Element) =>
+                            <div className='h-72 w-[30rem] bg-slate-800 '>
+                                <div className='text-center mt-10 text-xl font-medium font-sans '>{Element.Title}</div>
+                                <div>
+                                    <div className='flex justify-center'>
+                                        <div className='w-10/12 text-center'>
+                                            <div className='mt-6  text-lg text-justify font-serif'> {Element.Description}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className='h-96 w-80 bg-zinc-900'>
-                        <div className='text-center mt-10 text-xl'>WEB DEVELOPEMENT</div>
-                    </div>
+                        )
+                    }
                 </div>
             </div>
         </div>
