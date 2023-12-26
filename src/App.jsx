@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Homepage from './pages/HomePage'
 import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css'
 
@@ -36,7 +37,10 @@ function App() {
           <Route path="/" element={<Homepage />} />
         </Routes>
         <Routes>
-          <Route path="/" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter >
     </>
