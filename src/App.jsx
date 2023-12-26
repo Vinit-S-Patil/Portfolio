@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Homepage from './pages/HomePage'
 import Projects from './pages/Projects'
-import Contact from './pages/Contact'
+// import Temp from "./pages/Temp"
+import Test from "./pages/Test"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#03072A";
+  }, [])
 
   return (
     <>
@@ -40,9 +45,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
         </Routes>
         <Routes>
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
-      </BrowserRouter >
+      </BrowserRouter>
     </>
   )
 }
