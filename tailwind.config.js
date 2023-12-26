@@ -22,8 +22,8 @@ export default {
       }],
       '5xl': ['2.875rem', {
         lineHeight: '3.25rem',
-        letterSpacing: '-0.02em',
-        fontWeight: '100',
+        letterSpacing: '-0.07em',
+        fontWeight: '500',
       }],
     },
     extend: {},

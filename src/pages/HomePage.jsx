@@ -50,10 +50,10 @@ const Homepage = () => {
             <div className='flex justify-center'>
                 <div className='flex w-[80%] gap-x-8'>
                     <div className='min-w-[45rem] max-w-[45rem]'>
-                        <div className='ml-10 text-5xl tracking-wider text-slate-500 md:text-3xl' >
+                        <div className='ml-10 text-5xl tracking-wider text-slate-500 md:text-5xl' >
                             <div>HI, I'M Vinit!</div>
-                            <div> Creative
-                                <ReactTyped className='text-slate-300' strings={[" DEVELOPER", " CODER"]} typeSpeed={100} loop />
+                            <div> {"Creative "}
+                                <ReactTyped className='text-slate-300' strings={["DEVELOPER", "CODER"]} typeSpeed={100} loop />
                             </div>
                         </div>
                         <div className='mt-6 ml-10'>
