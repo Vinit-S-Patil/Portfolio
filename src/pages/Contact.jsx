@@ -60,7 +60,7 @@ const Contact = () => {
                                 <li class="mb-6 flex items-start text-left">
                                     <svg class="shrink-0 mr-6 text-2xl text-gray-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z" /></svg>
                                     <div>
-                                        <a class="cursor-pointer font-serif text-base md:text-lg" href="#">abraham@microsoft.com</a>
+                                        <a class="cursor-pointer font-serif text-base md:text-lg" href="#">vinitpatil8336@gmail.com</a>
                                         <span class="block text-xs uppercase">email</span>
                                     </div>
                                 </li>
