@@ -4,7 +4,7 @@ import ReactTyped from "react-typed";
 import Button from "../components/Buttons"
 import vinitResume from "../assets/vinitResume.pdf"
 import profile1 from "../assets/profile_1.jpg"
-
+import axios from "axios";
 
 const Homepage = () => {
 
@@ -43,7 +43,38 @@ const Homepage = () => {
         navigate("/projects")
     }
 
+    const onEmailSend = async () => {
+        console.log("+++++++++++++++++++++++++++++==")
+        try {
+
+            const notificationData = {
+                "emailBody": {
+                    "userName": userName,
+                    "message": userMessage,
+                    "userEmailAddress": userEmailAddress
+                }
+            }
+            console.log(notificationData)
+            const response = await axios({
+                method: 'post',
+                url: "https://backend-deploy-1s3q.onrender.com/sendEmail/portfolio",
+                data: notificationData
+            })
+            if (response) {
+                console.log("email sent")
+            }
+
+        }
+        // 
+        catch (error) {
+            console.log("error in apiService sentContactUsNotification " + error)
+        }
+    }
+
     const [userDetails, setUserDetails] = useState({})
+    const [userName, setUserName] = useState({})
+    const [userEmailAddress, setUserEmailAddress] = useState({})
+    const [userMessage, setUserMessage] = useState({})
     return (
         <div className=' mt-20 '>
             {/* Home ME */}
@@ -105,7 +136,16 @@ const Homepage = () => {
                                     </div>
                                 </li>
                                 <li className="my-6 flex items-center text-left">
-                                    <svg className="shrink-0 mr-6 text-2xl text-gray-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm215.3 337.7c.3 4.7.3 9.6.3 14.4c0 146.8-111.8 315.9-316.1 315.9c-63 0-121.4-18.3-170.6-49.8c9 1 17.6 1.4 26.8 1.4c52 0 99.8-17.6 137.9-47.4c-48.8-1-89.8-33-103.8-77c17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35c25.1-4.7 49.1-14.1 70.5-26.7c-8.3 25.7-25.7 47.4-48.8 61.1c22.4-2.4 44-8.6 64-17.3c-15.1 22.2-34 41.9-55.7 57.6z" /></svg>
+                                    {/* <svg className="shrink-0 mr-6 text-2xl text-gray-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                        <path fill="currentColor" d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm215.3 337.7c.3 4.7.3 9.6.3 14.4c0 146.8-111.8 315.9-316.1 315.9c-63 0-121.4-18.3-170.6-49.8c9 1 17.6 1.4 26.8 1.4c52 0 99.8-17.6 137.9-47.4c-48.8-1-89.8-33-103.8-77c17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35c25.1-4.7 49.1-14.1 70.5-26.7c-8.3 25.7-25.7 47.4-48.8 61.1c22.4-2.4 44-8.6 64-17.3c-15.1 22.2-34 41.9-55.7 57.6z" />
+                                    </svg> */}
+                                    {/* <svg class="w-16 h-16 text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                                        <path fill="currentColor" d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm215.3 337.7c.3 4.7.3 9.6.3 14.4c0 146.8-111.8 315.9-316.1 315.9c-63 0-121.4-18.3-170.6-49.8c9 1 17.6 1.4 26.8 1.4c52 0 99.8-17.6 137.9-47.4c-48.8-1-89.8-33-103.8-77c17.1 2.5 32.5 2.5 50.1-2a111 111 0 0 1-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 0 1-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 0 0 229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35c25.1-4.7 49.1-14.1 70.5-26.7c-8.3 25.7-25.7 47.4-48.8 61.1c22.4-2.4 44-8.6 64-17.3c-15.1 22.2-34 41.9-55.7 57.6z" />
+                                    </svg> */}
+
+                                    <svg className="shrink-0 mr-6 text-2xl text-gray-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.49v-1.75c-2.78.6-3.37-1.34-3.37-1.34-.46-1.17-1.12-1.48-1.12-1.48-1.12-.76.09-.74.09.7.06 1.54.1 2.35 1.6 2.35 1.6 1.36 2.34 3.56 1.66 4.43 1.27.14-.96.54-1.6.98-1.97-3.44-.39-7.04-1.72-7.04-7.66 0-1.69.6-3.07 1.59-4.15-.16-.4-.69-1.96.15-4.08 0 0 1.29-.41 4.23 1.58 1.23-.34 2.54-.51 3.85-.52 1.31.01 2.62.18 3.85.52 2.94-2 4.23-1.58 4.23-1.58.84 2.12.31 3.68.15 4.08.99 1.08 1.59 2.46 1.59 4.15 0 6.95-3.61 7.27-7.06 7.65.55.48 1.04 1.43 1.04 2.89v4.3c0 .27.18.58.7.48C19.13 20.17 22 16.42 22 12c0-5.52-4.48-10-10-10z" />
+                                    </svg>
                                     <div>
                                         <a className="cursor-pointer font-serif text-base md:text-sms" href="#">https://github.com/Vinit-S-Patil
                                         </a>
@@ -126,15 +166,16 @@ const Homepage = () => {
                             <p className="mt-2 mb-4 font-sans text-sm tracking-normal">Your Ideas, My Expertise. Let's Build Something Extraordinary Together.</p>
                             <form action="">
                                 <div className="md:col-gap-4 mb-5 grid md:grid-cols-2">
-                                    <input className="col-span-1 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" type="text" placeholder="Name" name="name" />
-                                    <input className="col-span-1 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" type="email" placeholder="Email" name="email" />
+                                    <input className="col-span-1 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" type="text" placeholder="Name" name="name" onChange={(event) => setUserName(event.target.value)} />
+                                    <input className="col-span-1 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" type="email" placeholder="Email" name="email" onChange={(event) => setUserEmailAddress(event.target.value)} />
                                 </div>
-                                <textarea className="mb-10 w-full resize-y whitespace-pre-wrap border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" id="" rows="6" placeholder="Question" name="question"></textarea>
-                                <button type="submit" className="group flex cursor-pointer items-center rounded-xl bg-blue-600 bg-none px-8 py-4 text-center font-semibold leading-tight text-white">
-                                    Send
-                                    <svg className="group-hover:ml-8 ml-4 transition-all" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.912 12H4L2.023 4.135A.662.662 0 0 1 2 3.995c-.022-.721.772-1.221 1.46-.891L22 12L3.46 20.896c-.68.327-1.464-.159-1.46-.867a.66.66 0 0 1 .033-.186L3.5 15" /></svg>
-                                </button>
+                                <textarea className="mb-10 w-full resize-y whitespace-pre-wrap border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black" id="" rows="6" placeholder="Question" name="question" onChange={(event) => setUserMessage(event.target.value)}></textarea>
                             </form>
+                            <button className="group flex cursor-pointer items-center rounded-xl bg-blue-600 bg-none px-8 py-4 text-center font-semibold leading-tight text-white" onClick={onEmailSend}>
+                                Send
+                                <svg className="group-hover:ml-8 ml-4 transition-all" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.912 12H4L2.023 4.135A.662.662 0 0 1 2 3.995c-.022-.721.772-1.221 1.46-.891L22 12L3.46 20.896c-.68.327-1.464-.159-1.46-.867a.66.66 0 0 1 .033-.186L3.5 15" /></svg>
+                            </button>
+
                         </div>
                     </div>
                 </section>
